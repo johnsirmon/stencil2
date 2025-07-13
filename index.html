@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🦈 Stencil Maker - Cricut Ready Designs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🦈 Stencil Maker</h1>
+            <p>Turn any image into a Cricut-ready stencil with drag & drop</p>
+        </header>
+
+        <main>
+            <!-- Upload Area -->
+            <div id="upload-area" class="upload-area">
+                <div class="upload-content">
+                    <div class="upload-icon">📁</div>
+                    <h3>Drag & Drop Your Image Here</h3>
+                    <p>Or click to browse files</p>
+                    <p class="file-types">Supports: PNG, JPG, JPEG, GIF, BMP</p>
+                    <input type="file" id="file-input" accept="image/*" hidden>
+                </div>
+            </div>
+
+            <!-- Image Preview & Analysis -->
+            <div id="preview-section" class="preview-section" style="display: none;">
+                <div class="preview-container">
+                    <h3>📸 Image Preview</h3>
+                    <img id="preview-image" alt="Uploaded image preview">
+                    <button id="remove-image" class="btn btn-secondary">❌ Remove Image</button>
+                </div>
+
+                <div class="analysis-container">
+                    <h3>🔍 Stencil Quality Analysis</h3>
+                    <div id="analysis-loading" class="loading">
+                        <div class="spinner"></div>
+                        <p>Analyzing image...</p>
+                    </div>
+                    
+                    <div id="analysis-results" style="display: none;">
+                        <div class="rating-display">
+                            <div class="stars" id="rating-stars"></div>
+                            <span id="rating-text"></span>
+                        </div>
+                        
+                        <div class="score-breakdown">
+                            <h4>📊 Quality Breakdown:</h4>
+                            <div id="score-details"></div>
+                        </div>
+                        
+                        <div class="recommendations">
+                            <h4>💡 Recommendations:</h4>
+                            <ul id="recommendations-list"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stencil Creation -->
+            <div id="stencil-section" class="stencil-section" style="display: none;">
+                <h3>⚙️ Create Your Stencil</h3>
+                
+                <div class="settings-container">
+                    <div class="setting-group">
+                        <label for="width-input">📐 Width (inches):</label>
+                        <input type="number" id="width-input" value="11" min="1" max="20" step="0.5">
+                        <small>Standard: 11" (adult), 8" (youth), 14" (hoodie back)</small>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="create-stencil-btn" class="btn btn-primary">🎨 Create Stencil</button>
+                </div>
+
+                <div id="stencil-loading" class="loading" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Creating your stencil...</p>
+                </div>
+
+                <div id="stencil-results" style="display: none;">
+                    <h4>✅ Stencil Created Successfully!</h4>
+                    <div class="download-container">
+                        <button id="download-svg" class="btn btn-success">📥 Download SVG</button>
+                        <p class="download-info">Ready for Cricut Design Space</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="tips">
+                <h4>💡 Pro Tips:</h4>
+                <ul>
+                    <li>🎯 <strong>High contrast images work best</strong> - black on white or white on black</li>
+                    <li>🔗 <strong>Avoid floating elements</strong> - letters like "O" or "A" will fall out</li>
+                    <li>📏 <strong>Thicker lines cut better</strong> - avoid very thin details</li>
+                    <li>🪞 <strong>Remember to mirror in Design Space</strong> if using iron-on vinyl</li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
